@@ -1,0 +1,53 @@
+package clasepractica;
+
+import java.util.Scanner;
+
+public class CalculoDeSalarioNeto {
+	
+	final static double INSS=7,SINDICATO=1,ANTIGUEDAD=15,INSSPATRONAL=22.5,IR=156;
+	public static void main(String[] args) {
+		Scanner lector = new Scanner(System.in);
+		double inss ,ir,sindicato,antiguedad,inssPatronal;
+		double montoINSS,montoIR,montoSindicato,montoAntiguedad ,montoINSSPatronal;
+		double ingresoBruto , ingresoTotal,totalDeducciones,ingresoNeto;
+		
+		System.out.println("Ingreso Bruto (Basico) = C$");
+		ingresoBruto=lector.nextInt();
+		
+		montoAntiguedad=ingresoBruto*ANTIGUEDAD/100;
+		montoSindicato=ingresoBruto/SINDICATO/100;
+		ingresoTotal=ingresoBruto+montoAntiguedad;
+		montoINSS=ingresoTotal*INSS/100;
+		montoIR=ingresoTotal*IR/100;
+		totalDeducciones=montoINSS+montoIR+montoSindicato;
+		
+		montoINSSPatronal=ingresoTotal+INSSPATRONAL/100;
+		ingresoNeto=ingresoTotal-totalDeducciones;
+		
+		System.out.println("---------Tasas---------");
+		System.out.println("inss="+INSS+"&");
+		System.out.println("ir="+IR+"&");
+		System.out.println("sindicato="+SINDICATO+"&");
+		System.out.println("antiguedad="+ANTIGUEDAD+"&");
+		System.out.println("inssPatronal="+INSSPATRONAL+"&");
+		System.out.println("---------Ingresos Del Empleado---------");
+		System.out.println("Ingreso Bruto (Basico) = C$"+ingresoBruto);
+		System.out.println("Antiguedad = C$"+montoAntiguedad);
+		System.out.println("Ingreso Total = C$"+ingresoTotal);
+		System.out.println("---------Deducciones Del Empleado---------");
+		System.out.println("------deducciones Sobre el ingreso bruto------");
+		System.out.println("Monto del Sindicato = C$"+montoSindicato);
+		System.out.println("------deducciones Sobre el ingreso total------");
+		System.out.println("Monto del Inss = C$"+montoINSS);
+		System.out.println("Monto del IR = C$"+montoIR);
+		System.out.println("Total de Deducciones = C$"+totalDeducciones);
+		System.out.println("------deducciones del empleador------");
+		System.out.println("Monto del INSS Patronal = C$"+montoINSSPatronal);
+		System.out.println("------Total a Pagar------");
+		System.out.println("Ingreso Neto = C$"+ingresoNeto);
+		
+	
+       lector.close();
+	}
+
+}
